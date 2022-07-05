@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/linus-1hx-nandin/linus-1hx-nandin:$SHORT_SHA', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/linus-1hx-nandin/linus-1hx-nandin:$SHORT_SHA']
