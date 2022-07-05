@@ -3,3 +3,5 @@ steps:
   args: ['build', '-t', 'gcr.io/linus-1hx-nandin/linus-1hx-nandin:$SHORT_SHA', '.']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/linus-1hx-nandin/linus-1hx-nandin:$SHORT_SHA']
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['run', 'deploy', 'linus-1hx-nandin', '--region europe-central2', '--platform=managed', '--image=gcr.io/linus-1hx-nandin/linus-1hx-nandin:$SHORT_SHA']
